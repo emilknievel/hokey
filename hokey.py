@@ -1,12 +1,9 @@
 """
 HOKEY
 """
-import sys
-import pygame
 
-from data.main import main
+from data.game import Game
 
 if __name__ == '__main__':
-    main()
-    pygame.quit()
-    sys.exit()
+    with Game() as game:
+        game.main()
