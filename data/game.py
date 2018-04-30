@@ -29,12 +29,21 @@ class Game:
     def main(self):
         while self.running:
             self.clock.tick(10)
-            for event in pyg.event.get():
-                if event.type == pyg.QUIT:
-                    self.running = False
             self.update()
 
     def update(self):
-        pass
+        """
+        Updates game logic, graphics and sound.
+        """
+        self.event_check()
         # TODO: check state
         # TODO: update graphics
+
+    def event_check(self):
+        """
+        Simple event handler. Should probablt be replaced by a proper event
+        handler class in the future.
+        """
+        for event in pyg.event.get():
+            if event.type == pyg.QUIT:
+                self.running = False
