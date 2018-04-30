@@ -4,7 +4,7 @@ HOKEY
 import sys
 import pygame
 
-from lib.main import main
+from data.main import main
 
 if __name__ == '__main__':
     main()
