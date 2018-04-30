@@ -35,6 +35,6 @@ class Game:
             self.update()
 
     def update(self):
-        print('hello')
+        pass
         # TODO: check state
         # TODO: update graphics
