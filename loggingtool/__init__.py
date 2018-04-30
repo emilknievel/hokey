@@ -1,8 +1,15 @@
 import logging
+from colorlog import ColoredFormatter
+LOG_LEVEL = logging.DEBUG
+LOGFORMAT = (
+    "  %(log_color)s%(levelname)-8s%(reset)s | "
+    "%(log_color)s%(message)s%(reset)s"
+)
+logging.root.setLevel(LOG_LEVEL)
+formatter = ColoredFormatter(LOGFORMAT)
+stream = logging.StreamHandler()
+stream.setLevel(LOG_LEVEL)
+stream.setFormatter(formatter)
 log = logging.getLogger(__name__)
-handler = logging.StreamHandler()
-formatter = logging.Formatter(
-        '[%(asctime)s] %(levelname)-5s: %(message)s')
-handler.setFormatter(formatter)
-log.addHandler(handler)
-log.setLevel(logging.DEBUG)
+log.setLevel(LOG_LEVEL)
+log.addHandler(stream)
